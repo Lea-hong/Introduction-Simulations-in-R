@@ -28,7 +28,7 @@ Hallgren (2014) describes the benefits of using simulations and provides example
 **3)**  Bootstrapping can be used as an alternative to the Sobel test to obtain a more accurate confidence interval. 
 
 4)	Describe, with your own words and/or examples, the 4 limitations to simulations mentioned by the author.  
-**1)** Real-world data often do not adhere to the assumptions and parameters by which data are generated in simulation studies. 
-**2)** The true population parameters that are incorporated into simulation studies are hidden. 
-**3)** Considerable computation power required for large itterations. 
-**4)** Many statistical questions canbe answered through mathematical derivations and does not require simulation. 
+**1)**  Real-world data often do not adhere to the assumptions and parameters by which data are generated in simulation studies.   
+**2)**  The true population parameters that are incorporated into simulation studies are hidden.   
+**3)**  Considerable computation power required for large itterations.   
+**4)**  Many statistical questions canbe answered through mathematical derivations and does not require simulation.   
