@@ -30,10 +30,7 @@ sample(x, size = 6, replace = TRUE)
 # YOUR TURN: generate random numbers
 ## Sample 100 values between 3 and 103 with replacement
 
-
-
-
-
+sample(3:103, size = 100, replace = TRUE)
 
 
 ### possible solutions ###
@@ -55,7 +52,7 @@ sample(x, 100, replace = TRUE)
 
 
 
-
+rnorm(100,0,1)
 
 
 
@@ -71,7 +68,7 @@ rnorm(100,0,1) # you do not need to label the arguments if you provide them in t
 
 
 
-
+rnorm(50,10,5)
 
 
 
@@ -86,7 +83,7 @@ rnrom(50, mean = 10, sd = 5) # using the rules above: non-default arguments in o
 
 
 
-
+rpois(1000,50)
 
 
 
@@ -101,7 +98,7 @@ rpois(1000,50)
 
 
 
-
+runif(30,0,10)
 
 
 
@@ -125,9 +122,10 @@ hist(replicate(10, mean(rnorm(100))))
 ## Replicate 1000 times the mean of 10 values drawn from a uniform distribution between 0 and 10  
 
 
-
-
-
+plot1 <- replicate(1000,
+                   mean(runif(10,0,10))
+                   )
+hist(plot1)
 
 
 
@@ -140,12 +138,11 @@ hist(replicate(1000, mean(runif(10, max = 10))))
 ## Replicate 100 times the mean of 50 values drawn from a normal distribution of mean 10 and standard deviation 5  
 
 
+plot2 <- replicate(100,
+          mean(rnorm(50,10,5))
+          )
 
-
-
-
-
-
+hist(plot2)
 
 
 ### possible solutions ###
