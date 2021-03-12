@@ -251,13 +251,15 @@ abline(v = 1, col = "red", lty = 2, lwd = 2)
 # nrep times, and draws a histogram of the results
 
 
-
-
-
-
-
-
-
+function1 <- function(nrep){
+  hist(
+    replicate(nrep,
+            mean(rnorm(100))
+            )
+    )
+}
+# check
+function1(1000)
 
 
 
@@ -284,17 +286,15 @@ histrnorm100(1000)
 ## to draw a histogram of nrep mean(rnorm(n)), where n is another input
 
 
-
-
-
-
-
-
-
-
-
-
-
+function2 <- function(nrep,n){
+  hist(
+    replicate(nrep,
+              mean(rnorm(n))
+    )
+  )
+}
+# check
+function2(100,10)
 
 
 
@@ -327,20 +327,31 @@ histrnorm_n(1000,100)
 ### Repeat with nrep = 20 and draw a histogram for n = 10
 ### Repeat with nrep = 100 and draw a histogram for n = 10    
 
+normal1 <- rnorm(50,0,1)
+normal2 <- rnorm(50,0,1)
 
+par(mfrow = c(1,2))
+hist(normal1)
+hist(normal2)
 
+t.test(normal1,normal2)
 
+t.test(normal1,normal2)$p.value
 
+simT <- function(x){
+  normal3 <- rnorm(x,0,1)
+  normal4 <- rnorm(x,0,1)
+  t.test(normal3, normal4)$p.value 
+}
 
+par(mfrow = c(1,2))
+simTRep <- replicate(20, simT(10))
+simTRep2 <- replicate(100, simT(10))
 
-
-
-
-
-
-
-
-
+hist(simTRep, breaks = 21, 
+     main = "20 repetition", xlab = "p-value")
+hist(simTRep2, breaks = 21, 
+     main = "100 repetition", xlab = "p-value")
 
 ### possible solutions ###
 #### Figure out how to do a t.test in R
@@ -398,13 +409,18 @@ power.t.test(n = NULL, delta = 0.5, sd = 1, sig.level = 0.05, power = 0.8)
 ## Calculate the proportion of p-values that are <0.05
 
 
+powerfun <- function(samplesize,mean1,mean2){
+  norm1 <-rnorm(samplesize,mean1)
+  norm2 <- rnorm(samplesize,mean2)
+  t.test(norm1,norm2)$p.value
+}
 
+set.seed(100)
+p <- replicate(1000, powerfun(64,0,0.5))
 
-
-
-
-
-
+hist(p,
+     main = "nrep = 1000, n = 64, delta = 0.5", xlab = 'pvalue')
+prop.table(table(p < 0.05))
 
 
 ### possible solution ###
@@ -455,14 +471,15 @@ power.t.test(n = 64, delta = 0.5, sd = 1) # the results are similar
 # 6             No          No   M 44.60615
 
 
-
-
-
-
-
-
-
-
+df1 <- data.frame(
+  smoking_status = c("Yes","Yes","No","Yes","Yes","No"),
+  lung_cancer = c("No","Yes","No","No","Yes","No"),
+  sex = sample(c("M", "F"), size = 6, replace = T),
+  age = rnorm(6, 30,10),
+  stringsAsFactors = TRUE
+)
+	
+print(df1) 
 
 
 #### possible solution ###
@@ -495,12 +512,9 @@ head(df)
 ## HINT: once the model works, use summary() to look at the results
 
 
+fit1 <- glm(lung_cancer ~ smoking_status + sex + age, data = df1, family = binomial(link = "logit"))
 
-
-
-
-
-
+summary(fit1)
 
 
 
