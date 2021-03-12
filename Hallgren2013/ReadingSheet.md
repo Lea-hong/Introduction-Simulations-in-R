@@ -13,12 +13,12 @@ Hallgren (2014) describes the benefits of using simulations and provides example
     *  
 
 2) In your own words, describe which steps are common to all sorts of simulations. Illustrate with simple examples rather than, or in addition to, using terms such as assumptions and parameters.    
-**1)**    We start by making assumptions about our data of interest
-**2)**    A random dataset is generated
-**3)**    Statistical analysis performed on this random dataset to generate results we are interested in
-**4)**    Repeat of step 2 and 3 to generate large amounts of stimulations
-**5)**    Re-make assumption and re-repeat of large amount of itteration
-**6)**    We obtain different estimate from different assumptions and we evaluate
+**1)**    We start by making assumptions about our data of interest.
+**2)**    A random dataset is generated.
+**3)**    Statistical analysis performed on this random dataset to generate results we are interested in.
+**4)**    Repeat of step 2 and 3 to generate large amounts of stimulations.
+**5)**    Re-make assumption and re-repeat of large amount of itteration.
+**6)**    We obtain different estimate from different assumptions and we evaluate.
 
 
 
